@@ -8,7 +8,7 @@ const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY!,
 });
 
-const indexName = process.env.PINECONE_INDEX || "pdf-rag-index";
+const indexName = process.env.PINECONE_INDEX || "rag-pdf-i";
 
 export async function POST(request: NextRequest) {
   try {
@@ -48,7 +48,9 @@ export async function POST(request: NextRequest) {
       chunkOverlap: 200,
     });
 
-    const chunks = await textSplitter.splitText(Array.isArray(pdfText) ? pdfText.join(" ") : pdfText);
+    const chunks = await textSplitter.splitText(
+      Array.isArray(pdfText) ? pdfText.join(" ") : pdfText,
+    );
 
     if (chunks.length === 0) {
       return NextResponse.json(
@@ -138,6 +140,7 @@ export async function POST(request: NextRequest) {
     await pineconeIndex.upsert({
       records: vectors,
     });
+    const index = pinecone.Index(indexName);
 
     console.log("PDF processed and stored in Pinecone!");
 
