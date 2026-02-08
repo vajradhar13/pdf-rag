@@ -151,9 +151,9 @@ export function ChatInterface({
                       : "bg-gray-800 text-gray-100 rounded-bl-none"
                   }`}
                 >
-                  <ReactMarkdown
-                    className="text-sm leading-relaxed prose prose-invert prose-sm max-w-none"
-                    components={{
+                  <div className="text-sm leading-relaxed prose prose-invert prose-sm max-w-none">
+                    <ReactMarkdown
+                      components={{
                       p: ({ node, ...props }) => (
                         <p className="mb-2 last:mb-0" {...props} />
                       ),
@@ -251,6 +251,7 @@ export function ChatInterface({
                   >
                     {msg.content}
                   </ReactMarkdown>
+                  </div>
                   {msg.context && msg.context.length > 0 && (
                     <details className="mt-2 text-xs opacity-75">
                       <summary className="cursor-pointer hover:opacity-100">
