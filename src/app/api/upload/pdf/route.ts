@@ -140,7 +140,6 @@ export async function POST(request: NextRequest) {
     await pineconeIndex.upsert({
       records: vectors,
     });
-    const index = pinecone.Index(indexName);
 
     console.log("PDF processed and stored in Pinecone!");
 
