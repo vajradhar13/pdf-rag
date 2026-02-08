@@ -154,103 +154,107 @@ export function ChatInterface({
                   <div className="text-sm leading-relaxed prose prose-invert prose-sm max-w-none">
                     <ReactMarkdown
                       components={{
-                      p: ({ node, ...props }) => (
-                        <p className="mb-2 last:mb-0" {...props} />
-                      ),
-                      ul: ({ node, ...props }) => (
-                        <ul
-                          className="list-disc list-inside mb-2 space-y-1"
-                          {...props}
-                        />
-                      ),
-                      ol: ({ node, ...props }) => (
-                        <ol
-                          className="list-decimal list-inside mb-2 space-y-1"
-                          {...props}
-                        />
-                      ),
-                      li: ({ node, ...props }) => (
-                        <li className="ml-2" {...props} />
-                      ),
-                      code: ({ node, inline, ...props }) =>
-                        inline ? (
-                          <code
-                            className="bg-black/30 px-1.5 py-0.5 rounded text-xs font-mono"
-                            {...props}
-                          />
-                        ) : (
-                          <code
-                            className="block bg-black/30 p-2 rounded mb-2 text-xs font-mono overflow-x-auto"
+                        p: ({ node, ...props }) => (
+                          <p className="mb-2 last:mb-0" {...props} />
+                        ),
+                        ul: ({ node, ...props }) => (
+                          <ul
+                            className="list-disc list-inside mb-2 space-y-1"
                             {...props}
                           />
                         ),
-                      pre: ({ node, ...props }) => (
-                        <pre
-                          className="bg-black/40 p-3 rounded-lg mb-2 overflow-x-auto"
-                          {...props}
-                        />
-                      ),
-                      blockquote: ({ node, ...props }) => (
-                        <blockquote
-                          className="border-l-2 border-gray-600 pl-3 italic opacity-75 mb-2"
-                          {...props}
-                        />
-                      ),
-                      strong: ({ node, ...props }) => (
-                        <strong className="font-bold" {...props} />
-                      ),
-                      em: ({ node, ...props }) => (
-                        <em className="italic" {...props} />
-                      ),
-                      a: ({ node, ...props }) => (
-                        <a
-                          className="text-blue-400 hover:underline"
-                          {...props}
-                        />
-                      ),
-                      h1: ({ node, ...props }) => (
-                        <h1
-                          className="text-lg font-bold mb-2 mt-2"
-                          {...props}
-                        />
-                      ),
-                      h2: ({ node, ...props }) => (
-                        <h2
-                          className="text-base font-bold mb-2 mt-2"
-                          {...props}
-                        />
-                      ),
-                      h3: ({ node, ...props }) => (
-                        <h3
-                          className="text-sm font-bold mb-2 mt-2"
-                          {...props}
-                        />
-                      ),
-                      hr: ({ node, ...props }) => (
-                        <hr className="border-gray-600 my-2" {...props} />
-                      ),
-                      table: ({ node, ...props }) => (
-                        <table
-                          className="border-collapse border border-gray-600 text-xs mb-2"
-                          {...props}
-                        />
-                      ),
-                      th: ({ node, ...props }) => (
-                        <th
-                          className="border border-gray-600 px-2 py-1 bg-gray-900/50"
-                          {...props}
-                        />
-                      ),
-                      td: ({ node, ...props }) => (
-                        <td
-                          className="border border-gray-600 px-2 py-1"
-                          {...props}
-                        />
-                      ),
-                    }}
-                  >
-                    {msg.content}
-                  </ReactMarkdown>
+                        ol: ({ node, ...props }) => (
+                          <ol
+                            className="list-decimal list-inside mb-2 space-y-1"
+                            {...props}
+                          />
+                        ),
+                        li: ({ node, ...props }) => (
+                          <li className="ml-2" {...props} />
+                        ),
+                        code: ({ node, inline, children, ...props }: any) =>
+                          inline ? (
+                            <code
+                              className="bg-black/30 px-1.5 py-0.5 rounded text-xs font-mono"
+                              {...props}
+                            >
+                              {children}
+                            </code>
+                          ) : (
+                            <code
+                              className="block bg-black/30 p-2 rounded mb-2 text-xs font-mono overflow-x-auto"
+                              {...props}
+                            >
+                              {children}
+                            </code>
+                          ),
+                        pre: ({ node, ...props }) => (
+                          <pre
+                            className="bg-black/40 p-3 rounded-lg mb-2 overflow-x-auto"
+                            {...props}
+                          />
+                        ),
+                        blockquote: ({ node, ...props }) => (
+                          <blockquote
+                            className="border-l-2 border-gray-600 pl-3 italic opacity-75 mb-2"
+                            {...props}
+                          />
+                        ),
+                        strong: ({ node, ...props }) => (
+                          <strong className="font-bold" {...props} />
+                        ),
+                        em: ({ node, ...props }) => (
+                          <em className="italic" {...props} />
+                        ),
+                        a: ({ node, ...props }) => (
+                          <a
+                            className="text-blue-400 hover:underline"
+                            {...props}
+                          />
+                        ),
+                        h1: ({ node, ...props }) => (
+                          <h1
+                            className="text-lg font-bold mb-2 mt-2"
+                            {...props}
+                          />
+                        ),
+                        h2: ({ node, ...props }) => (
+                          <h2
+                            className="text-base font-bold mb-2 mt-2"
+                            {...props}
+                          />
+                        ),
+                        h3: ({ node, ...props }) => (
+                          <h3
+                            className="text-sm font-bold mb-2 mt-2"
+                            {...props}
+                          />
+                        ),
+                        hr: ({ node, ...props }) => (
+                          <hr className="border-gray-600 my-2" {...props} />
+                        ),
+                        table: ({ node, ...props }) => (
+                          <table
+                            className="border-collapse border border-gray-600 text-xs mb-2"
+                            {...props}
+                          />
+                        ),
+                        th: ({ node, ...props }) => (
+                          <th
+                            className="border border-gray-600 px-2 py-1 bg-gray-900/50"
+                            {...props}
+                          />
+                        ),
+                        td: ({ node, ...props }) => (
+                          <td
+                            className="border border-gray-600 px-2 py-1"
+                            {...props}
+                          />
+                        ),
+                      }}
+                    >
+                      {msg.content}
+                    </ReactMarkdown>
                   </div>
                   {msg.context && msg.context.length > 0 && (
                     <details className="mt-2 text-xs opacity-75">
